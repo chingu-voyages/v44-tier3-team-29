@@ -20,7 +20,7 @@
 </div>
 <br />
 
-<center> ⚠️ This is a repository that stores frontend code, to see the backend code, go <a href="https://github.com/chingu-voyages/v44-tier3-team-29be">here</a>.</center>
+<center> ⚠️ This is a repository that stores the frontend code, to see the backend code, go <a href="https://github.com/chingu-voyages/v44-tier3-team-29be">here</a>.</center>
 <br />
 <br />
 
