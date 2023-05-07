@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/chingu-voyages/v44-tier3-team-29">
-    <img src="artemis-icon.png" alt="Logo" width="80" height="80">
+    <img src="./public/artemis-icon.png" alt="Logo" width="80" height="80">
   </a>
 
 <h1 align="center">Artemis</h1>
@@ -158,7 +158,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Ha Anna - [@haanna_dev](https://twitter.com/haanna_dev) - anna@haanna.com
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email.com
+Horus H. - [@nubi_vago](https://twitter.com/nubi_vago) - h.horace0921@gmail.com
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email.com
 
