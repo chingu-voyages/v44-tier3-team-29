@@ -158,7 +158,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Ha Anna - [@twitter_handle](https://twitter.com/haanna_dev) - anna@haanna.com
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email.com
+Devim - [@twitter_handle](https://twitter.com/d3v1m) - developerimalka@gmail.com
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email.com
 
