@@ -162,7 +162,7 @@ Devim - [@d3v1m](https://twitter.com/d3v1m) - developerimalka@gmail.com
 
 Horus H. - [@nubi_vago](https://twitter.com/nubi_vago) - h.horace0921@gmail.com
 
-Lei - [@twitter_handle](https://twitter.com/twitter_handle) - email@email.com
+Lei - [@AinAyeYel](https://twitter.com/AinAyeYel) - email@email.com
 
 Yuto Ichihara  - [@love_nz_from_jp](https://twitter.com/love_nz_from_jp) - email@email.com
 
