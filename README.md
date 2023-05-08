@@ -162,7 +162,7 @@ Devim - [@d3v1m](https://twitter.com/d3v1m) - developerimalka@gmail.com
 
 Horus H. - [@nubi_vago](https://twitter.com/nubi_vago) - h.horace0921@gmail.com
 
-Lei - [@AinAyeYel](https://twitter.com/AinAyeYel) - email@email.com
+Lei - [@AinAyeYel](https://twitter.com/AinAyeYel)
 
 Project Link: [https://github.com/chingu-voyages/v44-tier3-team-29](https://github.com/chingu-voyages/v44-tier3-team-29)
 
