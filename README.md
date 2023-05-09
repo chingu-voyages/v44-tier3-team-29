@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/chingu-voyages/v44-tier3-team-29">
-    <img src="artemis-icon.png" alt="Logo" width="80" height="80">
+    <img src="./public/artemis-icon.png" alt="Logo" width="80" height="80">
   </a>
 
 <h1 align="center">Artemis</h1>
@@ -20,7 +20,7 @@
 </div>
 <br />
 
-<center> ⚠️ This is a repository that stores frontend code, to see the backend code, go <a href="https://github.com/chingu-voyages/v44-tier3-team-29be">here</a>.</center>
+<center> ⚠️ This is a repository that stores the frontend code, to see the backend code, go <a href="https://github.com/chingu-voyages/v44-tier3-team-29be">here</a>.</center>
 <br />
 <br />
 
@@ -156,13 +156,13 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Ha Anna - [@twitter_handle](https://twitter.com/haanna_dev) - anna@haanna.com
+Ha Anna - [@haanna_dev](https://twitter.com/haanna_dev) - anna@haanna.com
 
-Devim - [@twitter_handle](https://twitter.com/d3v1m) - developerimalka@gmail.com
+Devim - [@d3v1m](https://twitter.com/d3v1m) - developerimalka@gmail.com
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email.com
+Horus H. - [@nubi_vago](https://twitter.com/nubi_vago) - h.horace0921@gmail.com
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email.com
+Lei - [@AinAyeYel](https://twitter.com/AinAyeYel)
 
 Project Link: [https://github.com/chingu-voyages/v44-tier3-team-29](https://github.com/chingu-voyages/v44-tier3-team-29)
 
