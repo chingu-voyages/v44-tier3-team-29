@@ -11,7 +11,7 @@
   <p align="center">
     A crowd-sourced web application aimed at assisting stray animals in reducing their number on the streets.
     <br />
-    <a href="">View Demo (N/A)</a>
+    <a href="https://artemis-client.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/chingu-voyages/v44-tier3-team-29/issues">Report Bug</a>
     ·
