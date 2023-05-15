@@ -3,3 +3,8 @@ bracketSpacing: true
 semi: false
 tabWidth: 2
 trailingComma: 'none'
+jsxSingleQuote: true
+bracketSameLine: true
+arrowParens: 'avoid'
+proseWrap: 'always'
+singleAttributePerLine: true

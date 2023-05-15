@@ -28,6 +28,9 @@ module.exports = {
           green: '#8BC34A',
           yellow: '#FFD700'
         }
+      },
+      backgroundImage: {
+        'hero-gradient': "url('/images/hero-gradient.svg')",
       }
     },
   },
