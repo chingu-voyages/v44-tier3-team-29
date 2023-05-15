@@ -28,10 +28,7 @@ module.exports = {
           green: '#8BC34A',
           yellow: '#FFD700'
         }
-      },
-      textShadow: {
-        link: '2px 2px 0px #8BC34A',
-      },
+      }
     },
   },
   plugins: [],
