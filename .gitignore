@@ -36,3 +36,9 @@ next-env.d.ts
 
 # editor config
 .vscode
+
+#env
+.env*
+
+#dist
+dist/
