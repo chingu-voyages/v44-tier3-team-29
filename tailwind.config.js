@@ -19,7 +19,19 @@ module.exports = {
       },
       backgroundColor: {
         white: '#FFFDFA',
-      }
+      },
+      borderColor: {
+        artemis: {
+          blue: '#00BFFF',
+          gray: 'rgba(33, 36, 39, 0.66)',
+          black: '#212427',
+          green: '#8BC34A',
+          yellow: '#FFD700'
+        }
+      },
+      textShadow: {
+        link: '2px 2px 0px #8BC34A',
+      },
     },
   },
   plugins: [],
