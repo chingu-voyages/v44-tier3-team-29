@@ -16,7 +16,7 @@ export default function Footer() {
         />
       </Link>
       <p className='mr-auto'>
-        <span className='font-semibold'>Made by</span> Anna, Devim, Hours, Lei{' '}
+        <span className='font-semibold'>Made by</span> Anna, Devim, Horus, Lei{' '}
         <br />
         of Chingu Voyage no. 44, 2023
       </p>
