@@ -7,7 +7,7 @@ import NavMobile from './Nav/Mobile/NavMobile'
 
 export default function Nav() {
   const [windowWidth, setWindowWidth] = useState(0)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

@@ -4,10 +4,7 @@ import mapboxgl from 'mapbox-gl'
 
 export default function Map() {
   useEffect(() => {
-    if (
-      !process.env.NEXT_PUBLIC_MAPBOX_KEY &&
-      process.env.NODE_ENV === ('development' || 'test')
-    ) {
+    if (!process.env.NEXT_PUBLIC_MAPBOX_KEY) {
       throw Error('Invalid Mapbox Key.')
     }
 
