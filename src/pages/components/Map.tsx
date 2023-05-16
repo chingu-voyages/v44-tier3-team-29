@@ -17,7 +17,7 @@ export default function Map() {
   }, []);
 
   return (
-  <div className="rounded-lg p-8 mb-24 mx-12">
+  <div className="rounded-lg lg:p-8 mb-24 mx-12">
     <div id="map-container" className="rounded-lg h-[800px]"/>
   </div>
   )
