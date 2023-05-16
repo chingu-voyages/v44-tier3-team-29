@@ -31,6 +31,9 @@ module.exports = {
       },
       backgroundImage: {
         'hero-gradient': "url('/images/hero-gradient.svg')",
+      },
+      screens: {
+        'md': '810px',
       }
     },
   },

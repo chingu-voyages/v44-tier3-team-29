@@ -4,8 +4,6 @@ import mapboxgl from 'mapbox-gl'
 
 export default function Map() {
   useEffect(() => {
-    // mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_KEY ?? ''
-
     if (
       !process.env.NEXT_PUBLIC_MAPBOX_KEY &&
       process.env.NODE_ENV === ('development' || 'test')
