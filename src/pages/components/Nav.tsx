@@ -38,7 +38,7 @@ export default function Nav() {
           height={41}
         />
       </Link>
-      {windowWidth >= 880 ? (
+      {windowWidth >= 900 ? (
         <NavDesktop isLoggedIn={isLoggedIn} />
       ) : (
         <NavMobile isLoggedIn={isLoggedIn} />
