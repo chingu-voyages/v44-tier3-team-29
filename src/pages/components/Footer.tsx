@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <div className='p-4 flex justify-between border-t-2 border-gray bg-artemis-white text-xs lg:text-sm'>
+    <div className='p-4 flex justify-between border-t-2 border-gray bg-artemis-white text-xs md:text-sm'>
       <Link
         href='/'
         className='mx-3 p-2'>
@@ -16,27 +16,27 @@ export default function Footer() {
         />
       </Link>
       <p className='mr-auto'>
-        <span className='font-semibold'>Made by</span> Anna, Devim, Horus, Lei{' '}
+        <span className='font-semibold block md:inline'>Made by</span> Anna, Devim, Horus, Lei{' '}
         <br />
         of Chingu Voyage no. 44, 2023
       </p>
-      <ul className='grid grid-cols-1 grid-cols-3 gap-x-6 gap-y-1 mx-4'>
-        <li className='lg:order-1'>
+      <ul className='grid grid-cols-3 gap-x-6 gap-y-1 mx-4'>
+        <li className='order-1'>
           <Link href='create-post'>Create Post</Link>
         </li>
-        <li className='lg:order-4'>
+        <li className='order-4'>
           <Link href='view-posts'>View Posts</Link>
         </li>
-        <li className='lg:order-2'>
+        <li className='order-2'>
           <Link href='our-mission'>Our Mission</Link>
         </li>
-        <li className='lg:order-3'>
+        <li className='order-3'>
           <Link href='/meet-the-devs'>Meet the Devs</Link>
         </li>
-        <li className='lg:order-5'>
+        <li className='order-5'>
           <Link href='/faq'>FAQ</Link>
         </li>
-        <li className='md:hidden block'>
+        <li className='order-6 md:hidden block'>
           <Link
         href='https://github.com/chingu-voyages/v44-tier3-team-29'>
         <SVGComponent

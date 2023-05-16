@@ -10,7 +10,7 @@ export default function Hero() {
       <p className='text-center mt-9 p-3'>
         Make a difference in the lives of stray animals and help reduce their
         numbers on the streets with{' '}
-        <span className='font-normal font-semibold'>Artemis</span>.<br />
+        <span className='font-semibold'>Artemis</span>.<br />
         We are a compassionate and community-driven web application aimed at
         assisting stray animals through crowd-sourcing.
       </p>
