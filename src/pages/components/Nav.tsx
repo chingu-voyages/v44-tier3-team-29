@@ -1,13 +1,25 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SVGComponent from './SVGComponent'
 import Link from 'next/link'
-import NavDesktop from "./NavDesktop"
-import NavMobile from "./NavMobile"
+import NavDesktop from './NavDesktop'
+import NavMobile from './NavMobile'
 
 export default function Nav() {
-  const [isMobile, setIsMobile] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <div className='flex justify-between p-4 text-xl items-center'>
@@ -22,8 +34,11 @@ export default function Nav() {
           height={41}
         />
       </Link>
-      {!isMobile && <NavDesktop isLoggedIn={isLoggedIn} />}
-      {isMobile && <NavMobile isLoggedIn={isLoggedIn} />}
+      {windowWidth >= 880 ? (
+        <NavDesktop isLoggedIn={isLoggedIn} />
+      ) : (
+        <NavMobile isLoggedIn={isLoggedIn} />
+      )}
     </div>
   )
 }

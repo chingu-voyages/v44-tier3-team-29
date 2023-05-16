@@ -9,7 +9,7 @@ export default function NotificationMenu() {
         <button
           type='button'
           aria-label='Notification'
-          className='mx-3'>
+          className='px-3 py-2'>
           <SVGComponent
             url={'/images/icons/notification-icon.svg'}
             alt={''}
