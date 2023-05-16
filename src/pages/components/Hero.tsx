@@ -16,21 +16,21 @@ export default function Hero() {
         assisting stray animals through crowd-sourcing.
       </p>
       <ul className='flex lg:hidden translate-y-24'>
-          <li>
-            <Link
-              href='/create-post'
-              className='mx-3 bg-artemis-white border-artemis-blue py-3 px-4 border-2 text-artemis-blue rounded hover:drop-shadow-lg ease-in-out duration-300 text-lg'>
-              Create Post
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='/view-posts'
-              className='mx-3 border-artemis-blue border-2 bg-artemis-blue py-3 px-4 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300 text-lg'>
-              View Posts
-            </Link>
-          </li>
-        </ul>
+        <li>
+          <Link
+            href='/create-post'
+            className='mx-3 bg-artemis-white border-artemis-blue py-3 px-4 border-2 text-artemis-blue rounded hover:drop-shadow-lg ease-in-out duration-300 text-lg'>
+            Create Post
+          </Link>
+        </li>
+        <li>
+          <Link
+            href='/view-posts'
+            className='mx-3 border-artemis-blue border-2 bg-artemis-blue py-3 px-4 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300 text-lg'>
+            View Posts
+          </Link>
+        </li>
+      </ul>
     </div>
   )
 }
