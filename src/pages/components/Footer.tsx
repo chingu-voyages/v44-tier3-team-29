@@ -16,8 +16,8 @@ export default function Footer() {
         />
       </Link>
       <p className='mr-auto'>
-        <span className='font-semibold block md:inline'>Made by</span> Anna, Devim, Horus, Lei{' '}
-        <br />
+        <span className='font-semibold block md:inline'>Made by</span> Anna,
+        Devim, Horus, Lei <br />
         of Chingu Voyage no. 44, 2023
       </p>
       <ul className='grid grid-cols-3 gap-x-6 gap-y-1 mx-4'>
@@ -37,15 +37,14 @@ export default function Footer() {
           <Link href='/faq'>FAQ</Link>
         </li>
         <li className='order-6 md:hidden block'>
-          <Link
-        href='https://github.com/chingu-voyages/v44-tier3-team-29'>
-        <SVGComponent
-          url={'/images/icons/github-icon.svg'}
-          alt={''}
-          width={16}
-          height={16}
-        />
-      </Link>
+          <Link href='https://github.com/chingu-voyages/v44-tier3-team-29'>
+            <SVGComponent
+              url={'/images/icons/github-icon.svg'}
+              alt={''}
+              width={16}
+              height={16}
+            />
+          </Link>
         </li>
       </ul>
       <Link

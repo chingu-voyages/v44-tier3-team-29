@@ -1,14 +1,36 @@
-import React from 'react'
+'use client'
+import React, { useState, useEffect } from 'react'
 import SVGComponent from './SVGComponent'
 import Link from 'next/link'
+import NavDesktop from './Nav/Desktop/NavDesktop'
+import NavMobile from './Nav/Mobile/NavMobile'
 
 export default function Nav() {
+  const [windowWidth, setWindowWidth] = useState(0)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth)
+      }
+
+      handleResize()
+
+      window.addEventListener('resize', handleResize)
+
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
+    }
+  }, [])
+
   return (
-    <div className='flex justify-between items-end p-4 text-xl'>
+    <div className='flex justify-between p-4 text-xl items-center'>
       <h1 className='sr-only'>Artemis</h1>
       <Link
         href='/'
-        className='mx-3'>
+        className='mx-3 w-48 min-w-[192px]'>
         <SVGComponent
           url={'/images/artemis_logo.svg'}
           alt={'Artemis logo with a cat sitting on the right'}
@@ -16,61 +38,11 @@ export default function Nav() {
           height={41}
         />
       </Link>
-      <nav className='flex justify-between w-full'>
-        <ul className='flex'>
-          <li>
-            <Link
-              href='create-post'
-              className='mx-3 hover:[text-shadow:_0_0_10px_#8BC34A] ease-in-out duration-300'>
-              Create Post
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='view-posts'
-              className='mx-3 hover:[text-shadow:_0_0_10px_#8BC34A] ease-in-out duration-300'>
-              View Posts
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='our-mission'
-              className='mx-3 hover:[text-shadow:_0_0_10px_#8BC34A] ease-in-out duration-300'>
-              Our Mission
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='/meet-the-devs'
-              className='mx-3 hover:[text-shadow:_0_0_10px_#8BC34A] ease-in-out duration-300'>
-              Meet the Devs
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='/faq'
-              className='mx-3 hover:[text-shadow:_0_0_10px_#8BC34A] ease-in-out duration-300'>
-              FAQ
-            </Link>
-          </li>
-        </ul>
-        <ul className='flex'>
-          <li>
-            <Link
-              href='/sign-in'
-              className='mx-3 bg-artemis-white border-artemis-blue py-2 px-3 border-2 text-artemis-blue rounded hover:drop-shadow-lg ease-in-out duration-300'>
-              Sign in
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='/sign-up'
-              className='mx-3 border-artemis-blue border-2 bg-artemis-blue py-2 px-3 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300'>
-              Sign up
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      {windowWidth >= 900 ? (
+        <NavDesktop isLoggedIn={isLoggedIn} />
+      ) : (
+        <NavMobile isLoggedIn={isLoggedIn} />
+      )}
     </div>
   )
 }

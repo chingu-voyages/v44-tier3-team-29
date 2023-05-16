@@ -4,10 +4,7 @@ import mapboxgl from 'mapbox-gl'
 
 export default function Map() {
   useEffect(() => {
-    if (
-      !process.env.NEXT_PUBLIC_MAPBOX_KEY &&
-      process.env.NODE_ENV === ('development' || 'test')
-    ) {
+    if (!process.env.NEXT_PUBLIC_MAPBOX_KEY) {
       throw Error('Invalid Mapbox Key.')
     }
 
@@ -24,7 +21,7 @@ export default function Map() {
   }, [])
 
   return (
-    <div className='rounded-lg p-8 mb-24 mx-12'>
+    <div className='rounded-lg p-4 mb-20 mx-10'>
       <div
         id='map-container'
         className='rounded-lg h-[800px]'
