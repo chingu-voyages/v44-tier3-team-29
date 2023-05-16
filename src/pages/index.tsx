@@ -1,15 +1,12 @@
-import Nav from './components/Nav'
-import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Map from './components/Map'
+import Layout from './components/Layout'
 
 export default function Home() {
   return (
-    <main>
-      <Nav />
+    <Layout>
       <Hero />
       <Map />
-      <Footer />
-    </main>
+    </Layout>
   )
 }
