@@ -2,22 +2,26 @@
 import React, { useState, useEffect } from 'react'
 import SVGComponent from './SVGComponent'
 import Link from 'next/link'
-import NavDesktop from './NavDesktop'
-import NavMobile from './NavMobile'
+import NavDesktop from './Nav/Desktop/NavDesktop'
+import NavMobile from './Nav/Mobile/NavMobile'
 
 export default function Nav() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState(0)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth)
+      }
 
-    window.addEventListener('resize', handleResize)
+      handleResize()
 
-    return () => {
-      window.removeEventListener('resize', handleResize)
+      window.addEventListener('resize', handleResize)
+
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
     }
   }, [])
 

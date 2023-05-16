@@ -1,5 +1,5 @@
 import React from 'react'
-import NotificationMenu from './NotificationMenu'
+import NotificationMenu from '../../NotificationMenu'
 import UserMenuMobile from './UserMenuMobile'
 import MenuMobile from './MenuMobile'
 
