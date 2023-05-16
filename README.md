@@ -11,7 +11,7 @@
   <p align="center">
     A crowd-sourced web application aimed at assisting stray animals in reducing their number on the streets.
     <br />
-    <a href="">View Demo (N/A)</a>
+    <a href="https://artemis-client.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/chingu-voyages/v44-tier3-team-29/issues">Report Bug</a>
     ·
@@ -88,7 +88,7 @@ Database:
 <!-- DEVELOPERS -->
 ### Developers
 
-| [Anna](https://github.com/ha-anna) | [Devim](https://github.com/devimalka) | [Horus](https://github.com/horus2121) | [Lei](https://github.com/leixdd)  |
+| [Anna](https://github.com/ha-anna) | [Devim](https://github.com/devimalka) | [Horus](https://github.com/nubiv) | [Lei](https://github.com/leixdd)  |
 |------|-------|-------|------|
 | <img src="https://avatars.githubusercontent.com/u/83631167?v=4" width="50px" border-radius="50%" /> | <img src="https://avatars.githubusercontent.com/u/67840180?v=4" width="50px" border-radius="50%" />  | <img src="https://avatars.githubusercontent.com/u/94784559?v=4" width="50px" border-radius="50%" />  | <img src="https://avatars.githubusercontent.com/u/8527882?v=4" width="50px" border-radius="50%" /> |
 
