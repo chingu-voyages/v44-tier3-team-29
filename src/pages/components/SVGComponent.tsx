@@ -5,13 +5,15 @@ interface SVGComponentProps {
   alt: string
   width: number
   height: number
+  CSSclass: string
 }
 
 const SVGComponent: React.FC<SVGComponentProps> = ({
   url,
   alt,
   width,
-  height
+  height,
+  CSSclass
 }) => {
   return (
     <Image
@@ -19,6 +21,7 @@ const SVGComponent: React.FC<SVGComponentProps> = ({
       alt={alt}
       width={width}
       height={height}
+      className={CSSclass}
     />
   )
 }
