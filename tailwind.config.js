@@ -32,7 +32,9 @@ module.exports = {
       backgroundImage: {
         'hero-gradient': "url('/images/hero-gradient.svg')",
         'error-cats': "url('/images/error-cats.svg')",
-        'error-cats-mobile': "url('/images/error-cats-mobile.svg')"
+        'error-cats-mobile': "url('/images/error-cats-mobile.svg')",
+        'mission-cats': "url('/images/mission-cats.svg')",
+        'mission-cats-mobile': "url('/images/mission-cats-mobile.svg')"
       },
       screens: {
         md: '810px'
