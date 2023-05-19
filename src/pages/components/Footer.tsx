@@ -10,7 +10,7 @@ export default function Footer() {
         className='mx-3 p-2'>
         <SVGComponent
           url={'/images/artemis_logo.svg'}
-          alt={''}
+          alt={'Artemis logo with a cat sitting on the right'}
           width={120}
           height={20}
         />
@@ -40,7 +40,7 @@ export default function Footer() {
           <Link href='https://github.com/chingu-voyages/v44-tier3-team-29'>
             <SVGComponent
               url={'/images/icons/github-icon.svg'}
-              alt={''}
+              alt={'GitHub logo: Link to Artemis&apos;s Github Repository.'}
               width={16}
               height={16}
             />
@@ -52,7 +52,7 @@ export default function Footer() {
         className='m-2 hidden md:block'>
         <SVGComponent
           url={'/images/icons/github-icon.svg'}
-          alt={''}
+          alt={'GitHub logo: Link to Artemis&apos;s Github Repository.'}
           width={32}
           height={32}
         />

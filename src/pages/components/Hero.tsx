@@ -4,10 +4,10 @@ import Link from 'next/link'
 export default function Hero() {
   return (
     <div className='h-screen p-4 flex flex-col items-center justify-center bg-hero-gradient bg-[center_top_200px] bg-no-repeat bg-[length:1300px_600px]'>
-      <p className='text-center font-light text-7xl p-2'>
+      <h2 className='text-center font-light text-7xl p-2'>
         <span className='block lg:-translate-x-36'>Helping strays, </span>
         <span className='block lg:translate-x-32'>one location at a time.</span>
-      </p>
+      </h2>
       <p className='text-center mt-9 p-3'>
         Make a difference in the lives of stray animals and help reduce their
         numbers on the streets with{' '}
