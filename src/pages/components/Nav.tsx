@@ -26,7 +26,7 @@ export default function Nav() {
   }, [])
 
   return (
-    <div className='flex justify-between p-4 text-xl items-center'>
+    <div className='flex justify-between p-4 text-xl items-center relative z-50'>
       <h1 className='sr-only'>Artemis</h1>
       <Link
         href='/'
@@ -36,6 +36,7 @@ export default function Nav() {
           alt={'Artemis logo with a cat sitting on the right'}
           width={206}
           height={41}
+          CSSclass={''}
         />
       </Link>
       {windowWidth >= 900 ? (

@@ -62,12 +62,13 @@ export default function UserMenuMobile() {
             alt={''}
             width={35}
             height={35}
+            CSSclass={''}
           />
         </button>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className='mr-12 py-3 min-w-[180px] rounded-md shadow-[0px_5px_38px_-10px_rgba(33,_36,_39,_0.33),_0px_10px_20px_-15px_rgba(33,_36,_39,_0.33)] border-2 bg-artemis-white border-artemis-black text-lg will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade'>
+        <DropdownMenu.Content className='mr-12 py-3 min-w-[180px] rounded-md shadow-[0px_5px_38px_-10px_rgba(33,_36,_39,_0.33),_0px_10px_20px_-15px_rgba(33,_36,_39,_0.33)] border-2 bg-artemis-white border-artemis-black text-lg will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-50'>
           <DropdownMenu.Item className='px-4 py-1 flex flex-col'>
             <p className='uppercase font-semibold text-xs text-left mb-4 text-artemis-gray'>
               Account
@@ -78,6 +79,7 @@ export default function UserMenuMobile() {
                 alt={''}
                 width={50}
                 height={50}
+                CSSclass={''}
               />
               <p className='ml-3 truncate'>
                 User Name <br />
