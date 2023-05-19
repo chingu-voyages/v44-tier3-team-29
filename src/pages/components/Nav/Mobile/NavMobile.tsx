@@ -5,7 +5,7 @@ import MenuMobile from './MenuMobile'
 
 export default function NavMobile({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
-    <nav>
+    <nav className="flex">
       {isLoggedIn && <NotificationMenu />}
       {isLoggedIn && <UserMenuMobile />}
       {!isLoggedIn && <MenuMobile />}
