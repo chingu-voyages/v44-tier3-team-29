@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ISocketState } from './socketTypes'
 import { socketReducers } from './socketReducers'
-import { RootState } from '@/store/store'
+import { RootState } from '@store/store'
 
 const initialState: ISocketState = {
   socket: undefined,

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { toastReducers } from './toastReducers'
 import { IToastListState } from './toastTypes'
-import { RootState } from '@/store/store'
+import { RootState } from '@store/store'
 
 const initialState: IToastListState = {
   toasters: []
