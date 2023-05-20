@@ -40,12 +40,16 @@ const Toast: React.FC = () => {
   return (
     <>
       <button
-        className='absolute top-[100px] right-0'
+        className='absolute top-[100px] left-5'
         onClick={handleAddToast}>
         Add Toaster
       </button>
-      <button onClick={handleReport}>Report Location</button>
-      <div className='fixed bottom-[100px] right-5'>
+      <button
+        className='absolute top-[120px] left-5'
+        onClick={handleReport}>
+        Report Location
+      </button>
+      <div className='fixed bottom-[100px] right-10'>
         {toastList.map(t => (
           <div
             onClick={handleRemoveToast}
