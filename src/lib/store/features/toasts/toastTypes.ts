@@ -1,4 +1,4 @@
-type TToastTypes = 'notification' | 'warning'
+type TToastTypes = 'info' | 'success' | 'warning'
 
 interface IToast {
   uid: string

@@ -1,29 +1,12 @@
 import { useToast } from '@hooks/useToast'
-import { selectSocket } from '@store/features/socket/socketSlice'
 import { selectToastList } from '@store/features/toasts/toastSlice'
 import { useAppSelector } from '@store/store'
 import { useEffect } from 'react'
+import Image from 'next/image'
 
 const Toast: React.FC = () => {
   const toastList = useAppSelector(selectToastList).toasters
-  const socket = useAppSelector(selectSocket).socket
-  const { addNewToast, removeTargetToast } = useToast()
-
-  const handleAddToast = () => {
-    addNewToast({ type: 'notification', message: 'hello' })
-  }
-
-  const handleRemoveToast = (e: React.MouseEvent) => {
-    const div = e.target as HTMLDivElement
-    const uid = div.id
-    removeTargetToast(uid)
-  }
-
-  const handleReport = () => {
-    if (!socket) return
-
-    socket.emit('system_message', 'Attention!!!A Stray Cat Found In Seoul!!!')
-  }
+  const { removeTargetToast } = useToast()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,29 +20,52 @@ const Toast: React.FC = () => {
     }
   }, [toastList, removeTargetToast])
 
+  const handleRemoveToast = (e: React.MouseEvent) => {
+    const div = e.target as HTMLDivElement
+    const uid = div.id
+    removeTargetToast(uid)
+  }
+
   return (
-    <>
-      <button
-        className='absolute top-[100px] left-5'
-        onClick={handleAddToast}>
-        Add Toaster
-      </button>
-      <button
-        className='absolute top-[120px] left-5'
-        onClick={handleReport}>
-        Report Location
-      </button>
-      <div className='fixed bottom-[100px] right-10'>
-        {toastList.map(t => (
+    <div className='fixed flex flex-col bottom-[30px] w-auto right-5 z-50'>
+      {toastList.map(t => {
+        let imagePath
+        switch (t.type) {
+          case 'info':
+            imagePath = '/artemis-icon-blue.png'
+            break
+          case 'success':
+            imagePath = '/artemis-icon.png'
+            break
+          case 'warning':
+            imagePath = '/artemis-icon-yellow.png'
+            break
+          default:
+            imagePath = '/artemis-icon.png'
+        }
+
+        return (
           <div
+            className='bg-[#fffdfa] m-1 flex flex-wrap rounded-xl opacity-[88%]'
             onClick={handleRemoveToast}
             id={t.uid}
             key={t.uid}>
-            {t.message}
+            <Image
+              className='m-3'
+              priority={true}
+              width={50}
+              height={50}
+              alt='notice'
+              src={imagePath}
+            />
+            <span className='my-3 mr-4 text-[12px] sm:text-[14px] flex-wrap'>
+              This is a {t.type.toUpperCase()} toast. <br />
+              Content: {t.message}
+            </span>
           </div>
-        ))}
-      </div>
-    </>
+        )
+      })}
+    </div>
   )
 }
 

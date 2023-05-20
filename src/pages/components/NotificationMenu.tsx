@@ -3,6 +3,8 @@ import SVGComponent from './SVGComponent'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 export default function NotificationMenu() {
+  // TODO: receive notification from socket
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>

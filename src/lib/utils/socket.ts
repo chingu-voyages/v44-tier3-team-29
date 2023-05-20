@@ -41,7 +41,7 @@ const startListeners = (
     console.info('System message received>>>', message)
 
     const payload: IAddToastPayload = {
-      type: 'notification',
+      type: 'info',
       message: message
     }
     addNewToast(payload)

@@ -10,7 +10,7 @@ import { useSocket } from '@/lib/hooks/useSocket'
 
 export default function Home() {
   const dispatch = useAppDispatch()
-  const { addNewToast } = useToast()
+  const { addNewToast, removeTargetToast } = useToast()
   const socket = useSocket('ws://localhost:8000', {
     reconnectionAttempts: 5,
     reconnectionDelay: 5000,
@@ -22,8 +22,31 @@ export default function Home() {
 
     // eslint-disable-next-line
   }, [])
+
+  const handleReport = () => {
+    if (!socket) return
+
+    socket.emit('system_message', 'Attention!!!A Stray Cat Found In Seoul!!!')
+  }
+
+  const handleAddToast = () => {
+    addNewToast({
+      type: 'info',
+      message: 'This is a info toast. Click toast to discard.'
+    })
+  }
   return (
     <Layout>
+      {/* <button
+        className='absolute top-[90px] left-5'
+        onClick={handleAddToast}>
+        Add Toaster
+      </button>
+      <button
+        className='absolute top-[120px] left-5'
+        onClick={handleReport}>
+        Report Location
+      </button> */}
       <Hero />
       <Map />
       <Toast />
