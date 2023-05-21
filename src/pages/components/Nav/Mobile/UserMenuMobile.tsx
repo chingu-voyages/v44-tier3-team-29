@@ -56,19 +56,22 @@ export default function UserMenuMobile() {
         <button
           type='button'
           aria-label='Menu'
-          className='px-3 py-2 translate-y-1'>
+          className='px-3 py-2'>
           <SVGComponent
             url={'/images/icons/menu-icon.svg'}
             alt={''}
             width={35}
             height={35}
-            CSSclass={''}
+            CSSclass={'min-w-[33px]'}
           />
         </button>
       </DropdownMenu.Trigger>
 
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content className='mr-12 py-3 min-w-[180px] rounded-md shadow-[0px_5px_38px_-10px_rgba(33,_36,_39,_0.33),_0px_10px_20px_-15px_rgba(33,_36,_39,_0.33)] border-2 bg-artemis-white border-artemis-black text-lg will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-50'>
+      <DropdownMenu.Portal className='relative'>
+        <DropdownMenu.Content
+          className='absolute right-[-60px] sm:right-[-10px] mr-12 py-3 w-[250px] rounded-md shadow-[0px_5px_38px_-10px_rgba(33,_36,_39,_0.33),_0px_10px_20px_-15px_rgba(33,_36,_39,_0.33)] border-2 bg-artemis-white border-artemis-black text-lg will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-50'
+          sideOffset={10}
+          alignOffset={20}>
           <DropdownMenu.Item className='px-4 py-1 flex flex-col'>
             <p className='uppercase font-semibold text-xs text-left mb-4 text-artemis-gray'>
               Account

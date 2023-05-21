@@ -31,7 +31,7 @@ export default function Footer() {
 
   return (
     <div
-      className={`p-4 flex justify-between border-t-2 border-gray bg-artemis-white text-xs md:text-sm fixed bottom-0 left-0 w-full ${
+      className={`p-4 flex justify-between border-t-2 border-gray bg-artemis-white text-xs md:text-sm fixed bottom-0 left-0 w-full z-50 ${
         isVisible ? 'show-footer' : 'hide-footer'
       }`}>
       <Link

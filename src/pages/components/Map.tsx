@@ -21,7 +21,7 @@ export default function Map() {
   }, [])
 
   return (
-    <div className='rounded-lg p-4 mb-20 mx-10'>
+    <div className='rounded-lg p-4 my-20 mx-10 h-[900px]'>
       <div
         id='map-container'
         className='rounded-lg h-[800px]'
