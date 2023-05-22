@@ -82,7 +82,7 @@ export default function MeetTheDevs() {
         alt={''}
         width={100}
         height={100}
-        CSSclass={'absolute top-[200px] opacity-70 left-0 right-0 w-full h-full z-0 overflow-hidden lg:hidden'}
+        CSSclass={'absolute min-h-[150%] top-[100px] md:top-[150px] opacity-70 left-0 right-0 w-full h-full z-0 overflow-hidden lg:hidden'}
       />
     </Layout>
   )
