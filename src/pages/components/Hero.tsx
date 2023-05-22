@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <div className='h-[80vh] min-h-[600px] p-4 flex flex-col items-center sm:justify-center md:justify-center bg-hero-gradient bg-no-repeat bg-[center_top_-50px] bg-[length:1500px] md:bg-[length:1000px] md:bg-[center_top] lg:bg-[length:1300px] lg:bg-[center_top_50px] mb-[150px]'>
+    <div className='h-full min-h-[600px] p-4 flex flex-col items-center sm:justify-center md:justify-center bg-hero-gradient bg-no-repeat bg-[center_top_-50px] bg-[length:1000px] md:bg-[center_top_-50px] lg:bg-[length:1200px] lg:bg-[center_top] mb-[150px]'>
       <h2 className='text-center font-light text-7xl p-2'>
         <span className='block lg:-translate-x-36'>Helping strays, </span>
         <span className='block lg:translate-x-32'>one location at a time.</span>
@@ -15,7 +15,7 @@ export default function Hero() {
         We are a compassionate and community-driven web application aimed at
         assisting stray animals through crowd-sourcing.
       </p>
-      <ul className='flex lg:hidden mt-[150px]'>
+      <ul className='flex lg:hidden mt-[150px] mb-[50px]'>
         <li>
           <Link
             href='/create-post'

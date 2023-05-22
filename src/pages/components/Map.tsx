@@ -21,10 +21,10 @@ export default function Map() {
   }, [])
 
   return (
-    <div className='rounded-lg mb-[150px] h-full p-4 mx-10 relative'>
+    <div className='rounded-lg mb-[300px] h-[80vh] p-4 mx-10 translate-y-[150px]'>
       <div
         id='map-container'
-        className='rounded-lg h-[80vh] relative z-0'
+        className='rounded-lg h-full relative z-10'
       />
   </div>
   )
