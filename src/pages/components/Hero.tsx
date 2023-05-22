@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <div className='h-[80vh] min-h-[600px] p-4 flex flex-col items-center md:justify-center bg-hero-gradient bg-no-repeat bg-[center_top_-50px] bg-[length:1500px] md:bg-[length:1000px] md:bg-[center_top] lg:bg-[length:1300px] lg:bg-[center_top_50px] mb-[150px]'>
-      <h2 className='text-center font-light text-7xl p-2 mt-[20vh] md:mt-1'>
+    <div className='h-[80vh] min-h-[600px] p-4 flex flex-col items-center sm:justify-center md:justify-center bg-hero-gradient bg-no-repeat bg-[center_top_-50px] bg-[length:1500px] md:bg-[length:1000px] md:bg-[center_top] lg:bg-[length:1300px] lg:bg-[center_top_50px] mb-[150px]'>
+      <h2 className='text-center font-light text-7xl p-2'>
         <span className='block lg:-translate-x-36'>Helping strays, </span>
         <span className='block lg:translate-x-32'>one location at a time.</span>
       </h2>
