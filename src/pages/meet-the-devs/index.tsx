@@ -42,14 +42,14 @@ export default function MeetTheDevs() {
 
   return (
     <Layout>
-      <div className='relative z-[1] p-5 mt-10 mb-32 flex flex-col items-center'>
-        <h2 className='text-5xl lg:text-6xl mb-8 mt-16'>Meet the Devs</h2>
-        <div className='p-4 max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-16 '>
+      <div className='mb-[150px] relative z-[1] p-5 mt-10 flex flex-col items-center'>
+        <h2 className='text-5xl lg:text-6xl mb-8 mt-16 text-center'>Meet the Devs</h2>
+        <div className='p-4 max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-16 justify-center items-center'>
           {devsInfos.map(dev => {
             return (
               <div
                 key={dev.name}
-                className='p-4 bg-artemis-white min-h-[200px] border-2 border-artemis-black rounded-lg w-[350px]'>
+                className='p-4 bg-artemis-white min-h-[200px] border-2 border-artemis-black rounded-lg w-[250px] md:w-[350px]'>
                 <div className='flex p-1'>
                   <SVGComponent
                     url={`/images/icons/${dev.name}-icon.svg`}
@@ -82,7 +82,7 @@ export default function MeetTheDevs() {
         alt={''}
         width={100}
         height={100}
-        CSSclass={'absolute top-[200px] opacity-70 left-0 right-0 w-full h-full z-0 overflow-hidden lg:hidden'}
+        CSSclass={'absolute min-h-[150%] top-[100px] md:top-[150px] opacity-70 left-0 right-0 w-full h-full z-0 overflow-hidden lg:hidden'}
       />
     </Layout>
   )

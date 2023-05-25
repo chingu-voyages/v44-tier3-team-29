@@ -30,7 +30,7 @@ export default function Nav() {
       <h1 className='sr-only'>Artemis</h1>
       <Link
         href='/'
-        className='mx-3 w-48 min-w-[192px]'>
+        className='mx-3 w-48 min-w-[150px] md:min-w-[192px]'>
         <SVGComponent
           url={'/images/artemis_logo.svg'}
           alt={'Artemis logo with a cat sitting on the right'}

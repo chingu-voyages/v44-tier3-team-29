@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 export default function OurMission() {
   return (
     <Layout>
-      <div className='p-2 flex flex-col items-center justify-center mt-10 min-h-[900px] bg-mission-cats-mobile bg-[center_top] bg-[length:350px] sm:bg-[center_top_20px] sm:bg-[length:400px] lg:bg-mission-cats lg:bg-[length:800px] lg:bg-[center_top_80px] bg-no-repeat'>
+      <div className='mb-[150px] p-2 flex flex-col items-center justify-center mt-10 min-h-[900px] bg-mission-cats-mobile bg-[center_top] bg-[length:350px] sm:bg-[center_top_20px] sm:bg-[length:400px] lg:bg-mission-cats lg:bg-[length:800px] lg:bg-[center_top_80px] bg-no-repeat'>
         <h2 className='text-5xl lg:text-6xl mb-8 mt-16 text-center'>
           Our Mission
         </h2>
