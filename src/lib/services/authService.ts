@@ -1,18 +1,21 @@
 import axios from 'axios'
 
-interface IUser {
+export type TUserRegisterData = {
+  username: string
   email: string
   password: string
   confirmPassword: string
 }
 
-export const authService = () => {
-  const login = async (data: Omit<IUser, 'confirmPassword'>) => {
+export type TUserLoginData = Omit<TUserRegisterData, 'confirmPassword'>
+
+export const authService = {
+  login: async (data: TUserLoginData) => {
     try {
       const res = await axios.post('url', data)
 
       console.log('Login>>>', res.data)
-      if (res.data.succss) {
+      if (res.data.success) {
         localStorage.setItem('user', JSON.stringify(res.data.message))
       }
 
@@ -24,14 +27,24 @@ export const authService = () => {
       } else {
         console.error(err)
       }
+
+      return { success: false, message: err }
     }
-  }
+  },
 
-  const logout = () => {
+  logout: () => {
     localStorage.removeItem('user')
-  }
 
-  const register = async (data: IUser) => {
+    const user = JSON.parse(localStorage.getItem('user') as string)
+
+    if (user) {
+      return { success: false, message: 'Something went wrong while logout.' }
+    }
+
+    return { success: true, message: 'Logged out successfully.' }
+  },
+
+  register: async (data: TUserRegisterData) => {
     try {
       const res = await axios.post('url', data)
 
@@ -45,8 +58,8 @@ export const authService = () => {
       } else {
         console.error(err)
       }
+
+      return { success: false, message: err }
     }
   }
-
-  return { login, logout, register }
 }
