@@ -12,9 +12,7 @@ const initialState: ISocketState = {
 const socketSlice = createSlice({
   name: 'socket',
   initialState,
-  reducers: {
-    ...socketReducers
-  }
+  reducers: socketReducers
 })
 
 export const { updateSocket, updateUid, updateUserSockets, removeUserSocket } =

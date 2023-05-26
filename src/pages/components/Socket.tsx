@@ -4,7 +4,7 @@ const Socket: React.FC = () => {
   const { socket, uid, userSockets } = useAppSelector(selectSocket)
 
   return socket ? (
-    <>
+    <div className='absolute top-1/3 left-1/3'>
       <h1>Socket Info</h1>
       <p>
         UserId: <strong>{uid}</strong>
@@ -15,7 +15,7 @@ const Socket: React.FC = () => {
       <p>
         SocketId: <strong>{socket?.id}</strong>
       </p>
-    </>
+    </div>
   ) : (
     <p>Loading...</p>
   )

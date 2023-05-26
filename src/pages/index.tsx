@@ -7,19 +7,25 @@ import { initSocket } from '@/lib/utils/socket'
 import { useAppDispatch } from '@/lib/store/store'
 import { useToast } from '@/lib/hooks/useToast'
 import { useSocket } from '@/lib/hooks/useSocket'
+import Socket from './components/Socket'
 
 export default function Home() {
   const dispatch = useAppDispatch()
   const { addNewToast, removeTargetToast } = useToast()
-  const socket = useSocket('ws://localhost:8000', {
+
+  const url = process.env.NEXT_PUBLIC_API_URL ?? 'ws://localhost:8000'
+
+  const socket = useSocket(url, {
     reconnectionAttempts: 5,
     reconnectionDelay: 5000,
-    autoConnect: false
+    autoConnect: false,
+    auth: {
+      uid: 'test'
+    }
   })
 
   useEffect(() => {
-    initSocket(socket, dispatch, addNewToast)
-
+    // initSocket(socket, dispatch, addNewToast)
     // eslint-disable-next-line
   }, [])
 
@@ -46,7 +52,8 @@ export default function Home() {
         className='absolute top-[120px] left-5'
         onClick={handleReport}>
         Report Location
-      </button> */}
+      </button>
+      <Socket></Socket> */}
       <Hero />
       <Map />
       <Toast />
