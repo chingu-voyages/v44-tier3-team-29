@@ -14,18 +14,20 @@ export default function Map() {
     mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_KEY
 
     // TODO: ask for user consent
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(position => {
-        console.log(position.coords.latitude, position.coords.longitude)
-        setLocation(
-          new LngLat(position.coords.longitude, position.coords.latitude)
-        )
-      })
-    } else {
-      console.log('user consent failed.')
-    }
 
-    const mapCenter = location ?? new LngLat(126.9784, 37.5665)
+    // if ('geolocation' in navigator) {
+    //   navigator.geolocation.getCurrentPosition(position => {
+    //     console.log(position.coords.latitude, position.coords.longitude)
+    //     setLocation(
+    //       new LngLat(position.coords.longitude, position.coords.latitude)
+    //     )
+    //   })
+    // } else {
+    //   console.log('user consent failed.')
+    // }
+
+    // const mapCenter = location ?? new LngLat(126.9784, 37.5665)
+    const mapCenter = new LngLat(126.9784, 37.5665)
 
     const map = new mapboxgl.Map({
       container: 'map-container',
@@ -34,19 +36,17 @@ export default function Map() {
       zoom: 12
     })
 
-    if (consent) {
-      map.addControl(
-        new mapboxgl.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true
-          },
-          // When active the map will receive updates to the device's location as it changes.
-          trackUserLocation: true,
-          // Draw an arrow next to the location dot to indicate which direction the device is heading.
-          showUserHeading: true
-        })
-      )
-    }
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        // When active the map will receive updates to the device's location as it changes.
+        trackUserLocation: true,
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+        showUserHeading: true
+      })
+    )
 
     return () => map.remove()
   }, [])
