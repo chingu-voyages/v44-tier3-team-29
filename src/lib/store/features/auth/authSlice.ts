@@ -3,7 +3,10 @@ import { IAuthState } from './authTypes'
 import { authReducers } from './authReducers'
 import { RootState } from '../../store'
 
-const user = JSON.parse(localStorage.getItem('user') as string)
+const user =
+  typeof window !== 'undefined'
+    ? JSON.parse(localStorage.getItem('user') as string)
+    : ''
 
 const initialState: IAuthState = user
   ? {
