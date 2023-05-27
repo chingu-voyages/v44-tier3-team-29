@@ -3,10 +3,10 @@ import axios from 'axios'
 export type TPostCreateData = {
   title: string
   location: string
-  sh_desc: string
+  shDesc: string
   tags: string
   image: string
-  lg_desc: string
+  lgDesc: string
 }
 
 export type TPostEditData = Partial<TPostCreateData>
@@ -31,7 +31,7 @@ export const postService = {
     }
   },
 
-  getPostByUserId: async (userId: string) => {
+  getPostsByUserId: async (userId: string) => {
     try {
       const res = await axios.get(BASE_URL + '/api/posts', {
         params: {
