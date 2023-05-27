@@ -3,7 +3,7 @@ import io, { ManagerOptions, Socket, SocketOptions } from 'socket.io-client'
 
 export const useSocket = (
   server: string,
-  opts?: Partial<ManagerOptions & SocketOptions> | undefined
+  opts?: Partial<ManagerOptions & SocketOptions>
 ): Socket => {
   const { current: socket } = useRef(io(server, opts))
 
