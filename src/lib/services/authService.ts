@@ -9,12 +9,13 @@ export type TUserRegisterData = {
 
 export type TUserLoginData = Omit<TUserRegisterData, 'confirmPassword'>
 
+const BASE_URL = process.env.NEXT_PUBLI_API_URL ?? 'http://localhost:3000'
+
 export const authService = {
   login: async (data: TUserLoginData) => {
     try {
-      const res = await axios.post('url', data)
+      const res = await axios.post(BASE_URL + '/api/auth/login', data)
 
-      console.log('Login>>>', res.data)
       if (res.data.success) {
         localStorage.setItem('user', JSON.stringify(res.data.message))
       }
@@ -46,9 +47,7 @@ export const authService = {
 
   register: async (data: TUserRegisterData) => {
     try {
-      const res = await axios.post('url', data)
-
-      console.log(res.data.message)
+      const res = await axios.post(BASE_URL + '/api/auth/register', data)
 
       return res.data
     } catch (err) {
