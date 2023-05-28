@@ -18,7 +18,7 @@ export default function SignUp() {
                             <label
                                 className="block overflow-hidden rounded-md border border-gray-500 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
                             >
-                                <span className="text-sm font-bold text-gray-400"> E-mail address </span>
+                                <span className="text-sm font-bold text-gray-400">E-mail address</span>
 
                                 <input
                                     type="email"
@@ -33,7 +33,7 @@ export default function SignUp() {
                             <label
                                 className="block overflow-hidden rounded-md border border-gray-500 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
                             >
-                                <span className="text-sm font-bold text-gray-400"> Username </span>
+                                <span className="text-sm font-bold text-gray-400">Username</span>
 
                                 <input
                                     type="text"
@@ -48,7 +48,7 @@ export default function SignUp() {
                             <label
                                 className="block overflow-hidden rounded-md border border-gray-500 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
                             >
-                                <span className="text-sm font-bold text-gray-400"> Password </span>
+                                <span className="text-sm font-bold text-gray-400">Password</span>
 
                                 <input
                                     type="password"
@@ -63,7 +63,7 @@ export default function SignUp() {
                             <label
                                 className="block overflow-hidden rounded-md border border-gray-500 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
                             >
-                                <span className="text-sm font-bold text-gray-400"> Confirm Password</span>
+                                <span className="text-sm font-bold text-gray-400">Confirm Password</span>
 
                                 <input
                                     type="password"
@@ -75,12 +75,12 @@ export default function SignUp() {
                         </div>
 
                         <h3 className="text-sm mt-5 px-5 lg:px-10  col-span-12 text-gray-500 text-center">
-                        By clicking the "Register" button below, you acknowledge that you have read, understood, and agree to be bound by the following <a className="font-bold text-[#00BFFF]" href="#">Terms and Conditions</a>
+                        By clicking the &quot;Register&quot; button below, you acknowledge that you have read, understood, and agree to be bound by the following <a className="font-bold text-[#00BFFF]" href="#">Terms and Conditions</a>
                         </h3>
                         <button className="rounded col-span-12 my-5 text-lg bg-[#00BFFF] py-2 text-white">Sign Up</button>
 
                         <h3 className="text-sm px-5 mt-10 col-span-12 text-center text-gray-500">
-                         Do you have an account? <a className="font-bold text-[#00BFFF]" href="/sign-in">Login here.</a>
+                         Been here before? <a className="font-bold text-[#00BFFF]" href="/sign-in">Sign In</a>
                         </h3>
                     </div>
                 </div>
