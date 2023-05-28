@@ -44,7 +44,6 @@ export const useAuth = () => {
         message: 'Your account was registered successfully.'
       })
     } else {
-      console.log(res.message)
       addNewToast({ type: 'warning', message: res.message })
     }
   }

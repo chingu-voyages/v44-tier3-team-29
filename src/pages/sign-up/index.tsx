@@ -1,11 +1,25 @@
-import React from 'react'
 import Layout from '../components/Layout'
 import React, { useState } from 'react'
-import Layout from '../components/Layout'
 import Link from 'next/link'
 import { useAuth } from '@/lib/hooks/useAuth'
 
 export default function SignUp() {
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const { register } = useAuth()
+
+  const handleSignUp = async () => {
+    const registerData = {
+      username,
+      email,
+      password,
+      confirm_password: confirmPassword
+    }
+
+    await register(registerData)
+  }
   return (
     <Layout>
       <div className='h-scren'>
@@ -30,6 +44,9 @@ export default function SignUp() {
                   id='emailadd'
                   placeholder='user@artemis.com'
                   className='mt-2 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-md'
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setEmail(e.target.value)
+                  }
                 />
               </label>
             </div>
@@ -45,6 +62,9 @@ export default function SignUp() {
                   id='username'
                   placeholder='meowuser'
                   className='mt-2 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-md'
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setUsername(e.target.value)
+                  }
                 />
               </label>
             </div>
@@ -60,6 +80,9 @@ export default function SignUp() {
                   id='pwduser'
                   placeholder=''
                   className='mt-2 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-md'
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setPassword(e.target.value)
+                  }
                 />
               </label>
             </div>
@@ -75,6 +98,9 @@ export default function SignUp() {
                   id='confirmpwduser'
                   placeholder=''
                   className='mt-2 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-md'
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setConfirmPassword(e.target.value)
+                  }
                 />
               </label>
             </div>
@@ -89,7 +115,9 @@ export default function SignUp() {
                 Terms and Conditions
               </a>
             </h3>
-            <button className='rounded col-span-12 my-5 text-lg bg-[#00BFFF] py-2 text-white'>
+            <button
+              className='rounded col-span-12 my-5 text-lg bg-[#00BFFF] py-2 text-white'
+              onClick={handleSignUp}>
               Sign Up
             </button>
 
