@@ -71,7 +71,8 @@ export default function FAQ() {
                     {item.question}
                   </Accordion.Trigger>
                 </Accordion.Header>
-                <Accordion.Content className='data-[state=open]:animate-slideDown data- animate-slideUp overflow-hidden my-5 mx-2'>
+                <Accordion.Content className='data-[state=open]:animate-slideDown data- animate-slideUp overflow-hidden mx-2'>
+                  {''} <br />
                   {item.answer}
                 </Accordion.Content>
               </Accordion.Item>
