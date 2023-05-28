@@ -10,7 +10,6 @@ export type TUserRegisterData = {
 export type TUserLoginData = Omit<TUserRegisterData, 'confirmPassword'>
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
-process.env.NODE_ENV
 
 export const authService = {
   login: async (data: TUserLoginData) => {
@@ -24,13 +23,10 @@ export const authService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   },
 
@@ -53,13 +49,9 @@ export const authService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err)
-
         return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
-
-        return { success: false, message: err }
+        return { success: false, message: 'Sozz something went wrong...' }
       }
     }
   }
