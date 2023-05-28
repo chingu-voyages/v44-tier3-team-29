@@ -1,5 +1,6 @@
-import React from "react";
-import Layout from "../components/Layout";
+import React from "react"
+import Layout from "../components/Layout"
+import Link from 'next/link'
 
 
 export default function SignUp() {
@@ -55,7 +56,7 @@ export default function SignUp() {
                         <button className="rounded col-span-12 my-5 text-lg bg-[#00BFFF] py-2 text-white">Login</button>
 
                         <h3 className="text-sm px-5 mt-10 col-span-12 text-center text-gray-500">
-                         Don&apos;t have an account? <a className="font-bold text-[#00BFFF]" href="/sign-up">Sign Up</a>
+                         Don&apos;t have an account? <Link className="font-bold text-[#00BFFF]" href="/sign-up">Sign Up</Link>
                         </h3>
                     </div>
                 </div>
