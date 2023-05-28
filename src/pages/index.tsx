@@ -1,7 +1,6 @@
 import Hero from './components/Hero'
 import Map from './components/Map'
 import Layout from './components/Layout'
-import Toast from './components/Toast'
 import { useEffect } from 'react'
 import { initSocket } from '@/lib/utils/socket'
 import { useAppDispatch } from '@/lib/store/store'
@@ -56,7 +55,6 @@ export default function Home() {
       <Socket></Socket> */}
       <Hero />
       <Map />
-      <Toast />
     </Layout>
   )
 }
