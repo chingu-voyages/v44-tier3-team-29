@@ -11,7 +11,7 @@ export type TPostCreateData = {
 
 export type TPostEditData = Partial<TPostCreateData>
 
-const BASE_URL = process.env.NEXT_PUBLI_API_URL ?? 'http://localhost:3000'
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000'
 
 export const postService = {
   getAllPosts: async () => {
