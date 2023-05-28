@@ -10,9 +10,7 @@ const initialState: IToastListState = {
 const toastSlice = createSlice({
   name: 'toast',
   initialState,
-  reducers: {
-    ...toastReducers
-  }
+  reducers: toastReducers
 })
 
 export const { addToast, removeToast } = toastSlice.actions
