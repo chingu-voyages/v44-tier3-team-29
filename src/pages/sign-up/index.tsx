@@ -20,6 +20,7 @@ export default function SignUp() {
 
     await register(registerData)
   }
+
   return (
     <Layout>
       <div className='h-scren'>

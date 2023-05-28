@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/Layout'
 import Link from 'next/link'
+import { useAuth } from '@/lib/hooks/useAuth'
 
-export default function SignUp() {
+export default function SignIn() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const { login } = useAuth()
+
+  const handleSignIn = async () => {
+    const loginData = {
+      email,
+      password
+    }
+
+    await login(loginData)
+  }
   return (
     <Layout>
       <div className='min-h-[80vh] p-7 max-w-[600px] flex mx-auto'>
@@ -19,14 +32,17 @@ export default function SignUp() {
             <div className='col-span-12'>
               <label className='block overflow-hidden rounded-lg border-2 border-artemis-black px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600'>
                 <span className='text-sm font-bold text-artemis-black'>
-                  Username
+                  Email
                 </span>
 
                 <input
                   type='text'
-                  id='username'
+                  id='email'
                   placeholder='meowuser'
                   className='mt-2 w-full leading-10 border-none p-0 rounded bg-artemis-white focus:border-transparent focus:outline-none focus:ring-0'
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setEmail(e.target.value)
+                  }
                 />
               </label>
             </div>
@@ -42,6 +58,9 @@ export default function SignUp() {
                   id='pwduser'
                   placeholder=''
                   className='mt-2 w-full leading-10 border-none p-0 rounded bg-artemis-white focus:border-transparent focus:outline-none focus:ring-0'
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setPassword(e.target.value)
+                  }
                 />
               </label>
             </div>
@@ -52,7 +71,7 @@ export default function SignUp() {
                 <input
                   type='checkbox'
                   name='chkRemember'
-                  id="chkRemember"
+                  id='chkRemember'
                 />{' '}
                 &nbsp; Remember Me
               </label>
@@ -62,7 +81,9 @@ export default function SignUp() {
               <Link href=''>Forgot password?</Link>
             </div>
 
-            <button className='font-bold rounded col-span-12 my-3 mt-10 text-lg bg-artemis-blue py-4 px-5 text-white'>
+            <button
+              className='font-bold rounded col-span-12 my-3 mt-10 text-lg bg-artemis-blue py-4 px-5 text-white'
+              onClick={handleSignIn}>
               Login
             </button>
 
