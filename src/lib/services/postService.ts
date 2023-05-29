@@ -21,13 +21,10 @@ export const postService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   },
 
@@ -42,13 +39,10 @@ export const postService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   },
 
@@ -63,13 +57,10 @@ export const postService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   },
 
@@ -80,13 +71,10 @@ export const postService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   },
 
@@ -101,13 +89,10 @@ export const postService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   },
 
@@ -122,13 +107,10 @@ export const postService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   }
 }

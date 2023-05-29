@@ -6,17 +6,19 @@ import {
 } from '../services/authService'
 import { loginUser, logoutUser } from '../store/features/auth/authSlice'
 import { useToast } from './useToast'
+import { useRouter } from 'next/router'
 
 export const useAuth = () => {
   const dispatch = useAppDispatch()
   const { addNewToast } = useToast()
+  const router = useRouter()
 
   const login = async (loginData: TUserLoginData) => {
     const res = await authService.login(loginData)
 
     if (res.success) {
       dispatch(loginUser(res.message))
-
+      router.push('/')
       addNewToast({ type: 'success', message: 'Welcome to Artemis.' })
     } else {
       addNewToast({ type: 'warning', message: res.message })
@@ -39,12 +41,13 @@ export const useAuth = () => {
     const res = await authService.register(registerData)
 
     if (res.success) {
+      router.push('/sign-in')
       addNewToast({
         type: 'success',
         message: 'Your account was registered successfully.'
       })
     } else {
-      addNewToast({ type: 'warning', message: '' })
+      addNewToast({ type: 'warning', message: res.message })
     }
   }
 

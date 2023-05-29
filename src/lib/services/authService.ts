@@ -4,12 +4,15 @@ export type TUserRegisterData = {
   username: string
   email: string
   password: string
-  confirmPassword: string
+  confirm_password: string
 }
 
-export type TUserLoginData = Omit<TUserRegisterData, 'confirmPassword'>
+export type TUserLoginData = {
+  email: string
+  password: string
+}
 
-const BASE_URL = process.env.NEXT_PUBLI_API_URL ?? 'http://localhost:3000'
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
 
 export const authService = {
   login: async (data: TUserLoginData) => {
@@ -23,13 +26,10 @@ export const authService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   },
 
@@ -52,13 +52,10 @@ export const authService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.status)
-        console.error(err.response)
+        return { success: false, message: err.response?.data.message }
       } else {
-        console.error(err)
+        return { success: false, message: 'Sozz something went wrong...' }
       }
-
-      return { success: false, message: err }
     }
   }
 }

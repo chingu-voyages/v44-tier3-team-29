@@ -59,8 +59,8 @@ const Toast: React.FC = () => {
               src={imagePath}
             />
             <span className='my-3 mr-4 text-[12px] sm:text-[14px] flex-wrap'>
-              This is a {t.type.toUpperCase()} toast. <br />
-              Content: {t.message}
+              {t.type.toUpperCase()} <br />
+              {t.message}
             </span>
           </div>
         )
