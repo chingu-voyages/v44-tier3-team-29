@@ -2,7 +2,7 @@ import React from 'react'
 import SVGComponent from '../../SVGComponent'
 import Link from 'next/link'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
-import { TMenuItems } from '../MenuItemTypes'
+import { TMenuItems } from '../../../../lib/types/MenuItemTypes'
 
 export default function MenuMobile() {
   const menuItems: TMenuItems = [

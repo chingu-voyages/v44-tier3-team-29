@@ -2,7 +2,7 @@ import React from 'react'
 import UserMenuDesktop from './UserMenuDesktop'
 import SigninSignupDesktop from './SigninSignupDesktop'
 import ActiveLink from './ActiveLink'
-import { TMenuItems } from '../MenuItemTypes'
+import { TMenuItems } from '../../../../lib/types/MenuItemTypes'
 
 export default function NavDesktop({ isLoggedIn }: { isLoggedIn: boolean }) {
   const menuItems: TMenuItems = [
