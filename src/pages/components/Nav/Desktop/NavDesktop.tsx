@@ -34,7 +34,7 @@ export default function NavDesktop({ isLoggedIn }: { isLoggedIn: boolean }) {
         {menuItems.map(i => (
           <li key={i.href}>
             <ActiveLink
-              href={i.href}
+              url={i.href}
               content={i.content}
             />
           </li>
