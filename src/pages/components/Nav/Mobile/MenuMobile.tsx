@@ -2,13 +2,7 @@ import React from 'react'
 import SVGComponent from '../../SVGComponent'
 import Link from 'next/link'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
-
-type TMenuItem = {
-  href: string
-  content: string
-}
-
-type TMenuItems = TMenuItem[]
+import { TMenuItems } from '../../../../lib/types/MenuItemTypes'
 
 export default function MenuMobile() {
   const menuItems: TMenuItems = [
@@ -83,21 +77,6 @@ export default function MenuMobile() {
 
             return node
           })}
-          {/* <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-end items-center'>
-            <Link href='create-post'>Create Post</Link>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-end items-center'>
-            <Link href='viev-post'>View Posts</Link>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-end items-center'>
-            <Link href='our-mission'>Our Mission</Link>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-end items-center'>
-            <Link href='meet-the-devs'>Meet the Devs</Link>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-end items-center'>
-            <Link href='faq'>FAQ</Link>
-          </DropdownMenu.Item> */}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
