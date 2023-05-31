@@ -8,7 +8,7 @@ export default function ActiveLink({ url, content }: { url: string, content: str
 
   return (
     <Link
-      href={url}
+      href={url ?? ''}
       className={style}>
       {content}
     </Link>
