@@ -32,7 +32,7 @@ export default function CreatePost() {
 
             <div className="flex flex-col">
               <label htmlFor="file-upload" className="font-bold text-lg">Image</label>
-              <input type="file" id="file-upload" name="file-upload" accept="image/*" className="file:border-2 file:border-artemis-black file:rounded file:bg-artemis-white file:color-artemis-black file:p-2 file:cursor-pointer file:mr-5 file:w-[40%] file:hover:bg-artemis-yellow file:ease-in-out file:duration-300 mt-2 mb-4" />
+              <input type="file" id="file-upload" name="file-upload" accept="image/*" className="rounded file:border-0 border-2 file:border-r-2 file:border-artemis-black border-artemis-black file:overflow-hidden file:bg-artemis-white file:color-artemis-black file:p-2 file:cursor-pointer file:mr-5 file:w-[40%] file:hover:bg-artemis-yellow file:ease-in-out file:duration-300 mt-2 mb-4" />
             </div>
           </div>
 
