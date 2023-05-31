@@ -8,8 +8,8 @@ export default function CreatePost() {
         <h2 className='text-5xl lg:text-6xl mb-8 mt-16 text-center'>
           Create Post
         </h2>
-        <form className="flex flex-wrap gap-5 w-full justify-between">
-          <div className="flex flex-col basis-5/12 justify-between">
+        <form className="flex flex-col md:flex-row flex-wrap gap-5 w-full justify-between">
+          <div className="flex flex-col md:basis-5/12 justify-between">
             <div className="flex flex-col">
               <label htmlFor="title" className="font-bold">Title</label>
               <input className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="title" name="title" required />
@@ -36,12 +36,12 @@ export default function CreatePost() {
             </div>
           </div>
 
-          <div className="flex flex-col basis-6/12">
+          <div className="flex flex-col md:basis-6/12">
             <label htmlFor="long-description" className="font-bold text-lg">Long Description</label>
-            <textarea className="border-2 border-artemis-black rounded p-2 mt-2 mb-4 h-full"  id="long-description" name="long-description" required></textarea>
+            <textarea className="border-2 border-artemis-black rounded p-2 mt-2 mb-4 h-full"  id="long-description" name="long-description" rows={8} required></textarea>
           </div>
 
-          <button className="ml-auto flex-none border-artemis-blue border-2 bg-artemis-blue py-2 px-4 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300" type="submit">Create Post</button>
+          <button className="md:ml-auto md:flex-none border-artemis-blue border-2 bg-artemis-blue py-2 px-4 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300" type="submit">Create Post</button>
         </form>
       </div>
     </Layout>
