@@ -10,7 +10,7 @@ type TFormData = {
 }
 
 export default function CreatePost() {
-    const [formData, setFormData] = React.useState(
+    const [formData, setFormData] = React.useState<TFormData>(
         {title: "", location: "", shortDescription: "", tags: [], longDescription: ""}
     )
 
@@ -31,10 +31,8 @@ export default function CreatePost() {
     }
   } 
 
-  console.log(formData)
-
-  const handleSubmit = () => {
-    // sending data to the server to store the post data
+  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault()
     return
   }
 
@@ -48,22 +46,22 @@ export default function CreatePost() {
           <div className="flex flex-col md:basis-5/12 justify-between">
             <div className="flex flex-col">
               <label htmlFor="title" className="font-bold">Title</label>
-              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="title" name="title" required />
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="title" name="title" value={formData.title} required />
             </div>
 
             <div className="flex flex-col">
               <label htmlFor="location" className="font-bold">Location</label>
-              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="location" name="location" required />
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="location" name="location" value={formData.location} required />
             </div>
 
             <div className="flex flex-col">
               <label htmlFor="shortDescription" className="font-bold">Short Description</label>
-              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="shortDescription" name="shortDescription" maxLength={200} required />
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="shortDescription" name="shortDescription" maxLength={200} value={formData.shortDescription} required />
             </div>
 
             <div className="flex flex-col">
               <label htmlFor="tags" className="font-bold">Tags</label>
-              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="tags" name="tags" />
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="tags" name="tags" value={formData.tags} />
             </div>
 
             <div className="flex flex-col">
@@ -74,7 +72,7 @@ export default function CreatePost() {
 
           <div className="flex flex-col md:basis-6/12">
             <label htmlFor="longDescription" className="font-bold text-lg">Long Description</label>
-            <textarea onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4 h-full"  id="longDescription" name="longDescription" rows={8} required></textarea>
+            <textarea onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4 h-full"  id="longDescription" name="longDescription" rows={8} value={formData.longDescription} required></textarea>
           </div>
 
           <button className="md:ml-auto md:flex-none border-artemis-blue border-2 bg-artemis-blue py-2 px-4 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300" type="submit">Create Post</button>
