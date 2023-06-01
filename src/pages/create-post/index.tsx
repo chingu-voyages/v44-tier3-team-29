@@ -29,7 +29,7 @@ export default function CreatePost() {
     }
   }, [postData])
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target
     setPostData(prevPostData => ({
       ...prevPostData,
