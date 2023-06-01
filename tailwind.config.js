@@ -14,7 +14,8 @@ module.exports = {
           gray: 'rgba(33, 36, 39, 0.66)',
           blue: '#00BFFF',
           green: '#8BC34A',
-          yellow: '#FFD700'
+          yellow: '#FFD700',
+          red: '#F44545'
         }
       },
       backgroundColor: {
@@ -26,7 +27,8 @@ module.exports = {
           gray: 'rgba(33, 36, 39, 0.66)',
           black: '#212427',
           green: '#8BC34A',
-          yellow: '#FFD700'
+          yellow: '#FFD700',
+          red: '#F44545'
         }
       },
       backgroundImage: {

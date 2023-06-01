@@ -1,39 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Layout from '../components/Layout'
-
-type TFormData = {
-  title: string, 
-  location: string, 
-  shortDescription: string, 
-  tags: string[], 
-  longDescription: string
-}
+import { TPostCreateData, postService } from '../../lib/services/postService'
 
 export default function CreatePost() {
-    const [formData, setFormData] = React.useState<TFormData>(
-        {title: "", location: "", shortDescription: "", tags: [], longDescription: ""}
-    )
-
+  const [formData, setFormData] = React.useState<TPostCreateData>(
+      {title: "", location: "", shDesc: "", tags: "", image: "", lgDesc: ""}
+  )
+  const [errorMessage, setErrorMessage] = React.useState("Something went wrong, try again.")
+  
   const handleChange = (event: React.ChangeEvent<HTMLInputElement> ) => {
     const { name, value } = event.target
-
-    if (name === "tags") {
-      const tagsArray = value.split(",").map(tag => tag.trim())
-      setFormData(prevFormData => ({
-        ...prevFormData,
-        [name]: tagsArray,
-      }))
-    } else {
-      setFormData(prevFormData => ({
-        ...prevFormData,
-        [name]: value,
-      }))
-    }
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value,
+    }))
   } 
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    return
+    try {
+      const response = await postService.createPost(formData)
+      if (!response.success) {
+        setErrorMessage(response.message)
+      } else {
+        setFormData({ title: "", location: "", shDesc: "", tags: "", image: "", lgDesc: "" })
+      }
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
@@ -55,8 +49,8 @@ export default function CreatePost() {
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="shortDescription" className="font-bold">Short Description</label>
-              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="shortDescription" name="shortDescription" maxLength={200} value={formData.shortDescription} required />
+              <label htmlFor="shDesc" className="font-bold">Short Description</label>
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="shDesc" name="shDesc" maxLength={200} value={formData.shDesc} required />
             </div>
 
             <div className="flex flex-col">
@@ -65,18 +59,22 @@ export default function CreatePost() {
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="file-upload" className="font-bold text-lg">Image</label>
-              <input type="file" id="file-upload" name="file-upload" accept="image/*" className="rounded file:border-0 border-2 file:border-r-2 file:border-artemis-black border-artemis-black file:overflow-hidden file:bg-artemis-white file:color-artemis-black file:p-2 file:cursor-pointer file:mr-5 file:w-[40%] file:hover:bg-artemis-yellow file:ease-in-out file:duration-300 mt-2 mb-4" />
+              <label htmlFor="image" className="font-bold text-lg">Image</label>
+              <input onChange={handleChange} type="file" id="image" name="image" accept="image/*" className="rounded file:border-0 border-2 file:border-r-2 file:border-artemis-black border-artemis-black file:overflow-hidden file:bg-artemis-white file:color-artemis-black file:p-2 file:cursor-pointer file:mr-5 file:w-[40%] file:hover:bg-artemis-yellow file:ease-in-out file:duration-300 mt-2 mb-4" />
             </div>
           </div>
 
           <div className="flex flex-col md:basis-6/12">
-            <label htmlFor="longDescription" className="font-bold text-lg">Long Description</label>
-            <textarea onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4 h-full"  id="longDescription" name="longDescription" rows={8} value={formData.longDescription} required></textarea>
+            <label htmlFor="lgDesc" className="font-bold text-lg">Long Description</label>
+            <textarea onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4 h-full"  id="lgDesc" name="lgDesc" rows={8} value={formData.lgDesc} required></textarea>
           </div>
 
-          <button className="md:ml-auto md:flex-none border-artemis-blue border-2 bg-artemis-blue py-2 px-4 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300" type="submit">Create Post</button>
+          <div className="md:ml-auto md:flex-none flex items-start justify-end">
+            {errorMessage && (<div className="text-center mr-5 max-w-full md:max-w-[250px] lg:max-w-[340px] self-center"><p className="text-artemis-red">{errorMessage}</p></div>)}
+            <button className="min-w-max border-artemis-blue border-2 bg-artemis-blue py-2 px-4 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300" type="submit">Create Post</button>
+          </div>
         </form>
+
       </div>
     </Layout>
   )
