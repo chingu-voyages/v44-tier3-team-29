@@ -1,33 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/Layout'
 
+type TFormData = {
+  title: string, 
+  location: string, 
+  shortDescription: string, 
+  tags: string[], 
+  longDescription: string
+}
+
 export default function CreatePost() {
+    const [formData, setFormData] = React.useState(
+        {title: "", location: "", shortDescription: "", tags: [], longDescription: ""}
+    )
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement> ) => {
+    const { name, value } = event.target
+
+    if (name === "tags") {
+      const tagsArray = value.split(",").map(tag => tag.trim())
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        [name]: tagsArray,
+      }))
+    } else {
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        [name]: value,
+      }))
+    }
+  } 
+
+  console.log(formData)
+
+  const handleSubmit = () => {
+    // sending data to the server to store the post data
+    return
+  }
+
   return (
     <Layout>
       <div className='mb-[150px] p-5 mt-10 flex flex-col mx-auto items-center max-w-[1000px] w-full'>
         <h2 className='text-5xl lg:text-6xl mb-8 mt-16 text-center'>
           Create Post
         </h2>
-        <form className="flex flex-col md:flex-row flex-wrap gap-5 w-full justify-between">
+        <form className="flex flex-col md:flex-row flex-wrap gap-5 w-full justify-between" onSubmit={handleSubmit}>
           <div className="flex flex-col md:basis-5/12 justify-between">
             <div className="flex flex-col">
               <label htmlFor="title" className="font-bold">Title</label>
-              <input className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="title" name="title" required />
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="title" name="title" required />
             </div>
 
             <div className="flex flex-col">
               <label htmlFor="location" className="font-bold">Location</label>
-              <input className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="location" name="location" required />
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="location" name="location" required />
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="short-description" className="font-bold">Short Description</label>
-              <input className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="short-description" name="short-description" maxLength={200} required />
+              <label htmlFor="shortDescription" className="font-bold">Short Description</label>
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="shortDescription" name="shortDescription" maxLength={200} required />
             </div>
 
             <div className="flex flex-col">
               <label htmlFor="tags" className="font-bold">Tags</label>
-              <input className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="tags" name="tags" />
+              <input onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4" type="text" id="tags" name="tags" />
             </div>
 
             <div className="flex flex-col">
@@ -37,8 +73,8 @@ export default function CreatePost() {
           </div>
 
           <div className="flex flex-col md:basis-6/12">
-            <label htmlFor="long-description" className="font-bold text-lg">Long Description</label>
-            <textarea className="border-2 border-artemis-black rounded p-2 mt-2 mb-4 h-full"  id="long-description" name="long-description" rows={8} required></textarea>
+            <label htmlFor="longDescription" className="font-bold text-lg">Long Description</label>
+            <textarea onChange={handleChange} className="border-2 border-artemis-black rounded p-2 mt-2 mb-4 h-full"  id="longDescription" name="longDescription" rows={8} required></textarea>
           </div>
 
           <button className="md:ml-auto md:flex-none border-artemis-blue border-2 bg-artemis-blue py-2 px-4 text-artemis-white rounded hover:drop-shadow-lg ease-in-out duration-300" type="submit">Create Post</button>
