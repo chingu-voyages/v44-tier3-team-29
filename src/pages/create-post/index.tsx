@@ -2,6 +2,10 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { TPostCreateData, postService } from '../../lib/services/postService'
 import { usePost } from '@/lib/hooks/usePost'
+import { useAppSelector } from '@/lib/store/store'
+import { selectAuth } from '@/lib/store/features/auth/authSlice'
+import { useRouter } from 'next/router'
+import { useToast } from '@/lib/hooks/useToast'
 
 export default function CreatePost() {
   const [postData, setPostData] = React.useState<TPostCreateData>({
@@ -14,6 +18,18 @@ export default function CreatePost() {
   })
   const [errorMessage, setErrorMessage] = React.useState('')
   const { createPost } = usePost()
+  const auth = useAppSelector(selectAuth)
+  const router = useRouter()
+  const { addNewToast } = useToast()
+
+  React.useEffect(() => {
+    if (!auth.isLoggedIn) {
+      addNewToast({ type: 'warning', message: 'Please sign in...' })
+      router.push('/sign-in')
+    }
+
+    // eslint-disable-next-line
+  }, [])
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {

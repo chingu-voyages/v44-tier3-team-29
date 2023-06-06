@@ -11,7 +11,7 @@ import { useToast } from './useToast'
 export const usePost = () => {
   const router = useRouter()
   const { addNewToast } = useToast()
-  const uid = useAppSelector(selectAuth).user?.uid
+  const user = useAppSelector(selectAuth).user
 
   const getAllPosts = async () => {
     const res = await postService.getAllPosts()
@@ -22,12 +22,12 @@ export const usePost = () => {
   }
 
   const getMyPosts = async () => {
-    if (!uid) {
+    if (!user) {
       addNewToast({ type: 'warning', message: 'Please sign in...' })
       return
     }
 
-    const res = await postService.getPostsByUserId(uid)
+    const res = await postService.getPostsByUserId(user.uid)
 
     if (!res.success) {
       addNewToast({ type: 'warning', message: res.message })
