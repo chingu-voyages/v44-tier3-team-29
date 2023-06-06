@@ -3,6 +3,7 @@ import SVGComponent from '../../SVGComponent'
 import Link from 'next/link'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import NotificationMenu from '../../NotificationMenu'
+import { useAuth } from '@/lib/hooks/useAuth'
 
 type TMenuItem = {
   href: string
@@ -12,6 +13,7 @@ type TMenuItem = {
 type TMenuItems = TMenuItem[]
 
 export default function UserMenuDesktop() {
+  const { logout } = useAuth()
   const menuItems: TMenuItems = [
     {
       href: '/profile',
@@ -95,7 +97,17 @@ export default function UserMenuDesktop() {
                 return (
                   <div key={i.href}>
                     {seperator}
-                    {node}
+                    {
+                      <DropdownMenu.Item
+                        key={i.href}
+                        className='px-4 pr-6 py-1 h-12 flex justify-start mx-1 items-center'>
+                        <div
+                          onClick={logout}
+                          className=' hover: cursor-pointer'>
+                          {i.content}
+                        </div>
+                      </DropdownMenu.Item>
+                    }
                   </div>
                 )
 
