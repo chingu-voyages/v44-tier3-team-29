@@ -28,18 +28,18 @@ export default function Home() {
     // eslint-disable-next-line
   }, [])
 
-  const handleReport = () => {
-    if (!socket) return
+  // const handleReport = () => {
+  //   if (!socket) return
 
-    socket.emit('system_message', 'Attention!!!A Stray Cat Found In Seoul!!!')
-  }
+  //   socket.emit('system_message', 'Attention!!!A Stray Cat Found In Seoul!!!')
+  // }
 
-  const handleAddToast = () => {
-    addNewToast({
-      type: 'info',
-      message: 'This is a info toast. Click toast to discard.'
-    })
-  }
+  // const handleAddToast = () => {
+  //   addNewToast({
+  //     type: 'info',
+  //     message: 'This is a info toast. Click toast to discard.'
+  //   })
+  // }
   return (
     <Layout>
       {/* <button
