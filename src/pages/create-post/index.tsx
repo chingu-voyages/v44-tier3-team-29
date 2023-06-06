@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { TPostCreateData, postService } from '../../lib/services/postService'
+import { usePost } from '@/lib/hooks/usePost'
 
 export default function CreatePost() {
   const [postData, setPostData] = React.useState<TPostCreateData>({
@@ -12,6 +13,7 @@ export default function CreatePost() {
     lgDesc: ''
   })
   const [errorMessage, setErrorMessage] = React.useState('')
+  const { createPost } = usePost()
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -29,7 +31,9 @@ export default function CreatePost() {
     }
   }, [postData])
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target
     setPostData(prevPostData => ({
       ...prevPostData,
@@ -40,26 +44,29 @@ export default function CreatePost() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setErrorMessage('')
-    try {
-      const response = await postService.createPost(postData)
-      console.log(response)
-      if (!response.success) {
-        // TODO: change setErrorMessage to response.message
-        // setErrorMessage(response.message)
-        setErrorMessage('Something went wrong, try again.')
-      } else {
-        setPostData({
-          title: '',
-          location: '',
-          shDesc: '',
-          tags: '',
-          image: '',
-          lgDesc: ''
-        })
-      }
-    } catch (error) {
-      console.error(error)
-    }
+
+    createPost(postData)
+
+    // try {
+    //   const response = await postService.createPost(postData)
+    //   console.log(response)
+    //   if (!response.success) {
+    //     // TODO: change setErrorMessage to response.message
+    //     // setErrorMessage(response.message)
+    //     setErrorMessage('Something went wrong, try again.')
+    //   } else {
+    //     setPostData({
+    //       title: '',
+    //       location: '',
+    //       shDesc: '',
+    //       tags: '',
+    //       image: '',
+    //       lgDesc: ''
+    //     })
+    //   }
+    // } catch (error) {
+    //   console.error(error)
+    // }
   }
 
   return (
