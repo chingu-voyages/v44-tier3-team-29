@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import {
   TPostCreateData,
   TPostEditData,
@@ -8,6 +9,7 @@ import { useAppSelector } from '../store/store'
 import { useToast } from './useToast'
 
 export const usePost = () => {
+  const router = useRouter()
   const { addNewToast } = useToast()
   const uid = useAppSelector(selectAuth).user?.uid
 
@@ -56,6 +58,13 @@ export const usePost = () => {
         type: 'success',
         message: 'Post has been created successfully.'
       })
+
+      const localPostData = localStorage.getItem('postData')
+      if (typeof window !== 'undefined' && localPostData) {
+        localStorage.removeItem('postData')
+      }
+
+      router.push('/')
     } else {
       addNewToast({ type: 'warning', message: res.message })
     }
