@@ -4,6 +4,8 @@ import SVGComponent from '../../SVGComponent'
 import Link from 'next/link'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { useAuth } from '@/lib/hooks/useAuth'
+import { useAppSelector } from '@/lib/store/store'
+import { selectAuth } from '@/lib/store/features/auth/authSlice'
 
 type TMenuItem = {
   href: string
@@ -14,6 +16,7 @@ type TMenuItems = TMenuItem[]
 
 export default function UserMenuMobile() {
   const { logout } = useAuth()
+  const user = useAppSelector(selectAuth).user
   const menuItems: TMenuItems = [
     {
       href: '/profile',
@@ -88,8 +91,8 @@ export default function UserMenuMobile() {
                 CSSclass={''}
               />
               <p className='ml-3 truncate'>
-                User Name <br />
-                <span className='text-artemis-gray'>name@email.com</span>
+                {user?.username} <br />
+                <span className='text-artemis-gray'>{user?.email}</span>
               </p>
             </div>
           </DropdownMenu.Item>
