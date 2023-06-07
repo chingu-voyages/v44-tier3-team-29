@@ -61,7 +61,7 @@ export default function CreatePost() {
     event.preventDefault()
     setErrorMessage('')
 
-    createPost(postData)
+    await createPost(postData)
 
     // try {
     //   const response = await postService.createPost(postData)
