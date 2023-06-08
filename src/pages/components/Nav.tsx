@@ -4,10 +4,12 @@ import SVGComponent from './SVGComponent'
 import Link from 'next/link'
 import NavDesktop from './Nav/Desktop/NavDesktop'
 import NavMobile from './Nav/Mobile/NavMobile'
+import { useAppSelector } from '@/lib/store/store'
+import { selectAuth } from '@/lib/store/features/auth/authSlice'
 
 export default function Nav() {
   const [windowWidth, setWindowWidth] = useState(0)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const user = useAppSelector(selectAuth)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -40,9 +42,9 @@ export default function Nav() {
         />
       </Link>
       {windowWidth >= 900 ? (
-        <NavDesktop isLoggedIn={isLoggedIn} />
+        <NavDesktop isLoggedIn={user.isLoggedIn} />
       ) : (
-        <NavMobile isLoggedIn={isLoggedIn} />
+        <NavMobile isLoggedIn={user.isLoggedIn} />
       )}
     </div>
   )

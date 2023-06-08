@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 import SVGComponent from '../../SVGComponent'
 import Link from 'next/link'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { useAuth } from '@/lib/hooks/useAuth'
+import { useAppSelector } from '@/lib/store/store'
+import { selectAuth } from '@/lib/store/features/auth/authSlice'
 
 type TMenuItem = {
   href: string
@@ -12,6 +15,8 @@ type TMenuItem = {
 type TMenuItems = TMenuItem[]
 
 export default function UserMenuMobile() {
+  const { logout } = useAuth()
+  const user = useAppSelector(selectAuth).user
   const menuItems: TMenuItems = [
     {
       href: '/profile',
@@ -86,8 +91,8 @@ export default function UserMenuMobile() {
                 CSSclass={''}
               />
               <p className='ml-3 truncate'>
-                User Name <br />
-                <span className='text-artemis-gray'>name@email.com</span>
+                {user?.username} <br />
+                <span className='text-artemis-gray'>{user?.email}</span>
               </p>
             </div>
           </DropdownMenu.Item>
@@ -109,11 +114,29 @@ export default function UserMenuMobile() {
               <DropdownMenu.Separator className='h-[2px] min-w-full bg-artemis-gray my-2' />
             )
 
-            if (i.href === '/logout' || i.href === '/create-post')
+            if (i.href === '/create-post')
               return (
                 <div key={i.href}>
                   {seperator}
                   {node}
+                </div>
+              )
+
+            if (i.href === '/logout')
+              return (
+                <div key={i.href}>
+                  {seperator}
+                  {
+                    <DropdownMenu.Item
+                      key={i.href}
+                      className='px-4 pr-6 py-1 h-12 flex justify-start mx-1 items-center'>
+                      <div
+                        className=' hover:cursor-pointer'
+                        onClick={logout}>
+                        {i.content}
+                      </div>
+                    </DropdownMenu.Item>
+                  }
                 </div>
               )
 

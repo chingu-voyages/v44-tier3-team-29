@@ -3,6 +3,9 @@ import SVGComponent from '../../SVGComponent'
 import Link from 'next/link'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import NotificationMenu from '../../NotificationMenu'
+import { useAuth } from '@/lib/hooks/useAuth'
+import { useAppSelector } from '@/lib/store/store'
+import { selectAuth } from '@/lib/store/features/auth/authSlice'
 
 type TMenuItem = {
   href: string
@@ -12,6 +15,8 @@ type TMenuItem = {
 type TMenuItems = TMenuItem[]
 
 export default function UserMenuDesktop() {
+  const { logout } = useAuth()
+  const user = useAppSelector(selectAuth).user
   const menuItems: TMenuItems = [
     {
       href: '/profile',
@@ -68,8 +73,8 @@ export default function UserMenuDesktop() {
                   CSSclass={''}
                 />
                 <p className='ml-3 truncate'>
-                  User Name <br />
-                  <span className='text-artemis-gray'>name@email.com</span>
+                  {user?.username} <br />
+                  <span className='text-artemis-gray'>{user?.email}</span>
                 </p>
               </div>
             </DropdownMenu.Item>
@@ -95,41 +100,22 @@ export default function UserMenuDesktop() {
                 return (
                   <div key={i.href}>
                     {seperator}
-                    {node}
+                    {
+                      <DropdownMenu.Item
+                        key={i.href}
+                        className='px-4 pr-6 py-1 h-12 flex justify-start mx-1 items-center'>
+                        <div
+                          onClick={logout}
+                          className=' hover: cursor-pointer'>
+                          {i.content}
+                        </div>
+                      </DropdownMenu.Item>
+                    }
                   </div>
                 )
 
               return node
             })}
-            {/* <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-end items-center'>
-              <Link
-                href='/profile'
-                className=''>
-                Profile
-              </Link>
-            </DropdownMenu.Item>
-            <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-end items-center'>
-              <Link
-                href='/my-posts'
-                className=''>
-                My posts
-              </Link>
-            </DropdownMenu.Item>
-            <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-end items-center'>
-              <Link
-                href='/settings'
-                className=''>
-                Settings
-              </Link>
-            </DropdownMenu.Item> */}
-            {/* <DropdownMenu.Separator className='h-[2px] min-w-full bg-artemis-gray my-2' />
-            <DropdownMenu.Item className='px-4 pr-6 py-1 h-12 flex justify-start mx-1 items-center'>
-              <Link
-                href='/logout'
-                className=''>
-                Log out
-              </Link>
-            </DropdownMenu.Item> */}
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>

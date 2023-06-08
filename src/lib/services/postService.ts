@@ -1,4 +1,5 @@
 import axios from 'axios'
+import axiosInstance from './authHeader'
 
 export type TPostCreateData = {
   title: string
@@ -11,12 +12,12 @@ export type TPostCreateData = {
 
 export type TPostEditData = Partial<TPostCreateData>
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000'
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
 
 export const postService = {
   getAllPosts: async () => {
     try {
-      const res = await axios.get(BASE_URL + '/api/posts')
+      const res = await axiosInstance.get(BASE_URL + '/api/posts')
 
       return res.data
     } catch (err) {
@@ -30,7 +31,7 @@ export const postService = {
 
   getPostsByUserId: async (userId: string) => {
     try {
-      const res = await axios.get(BASE_URL + '/api/posts', {
+      const res = await axiosInstance.get(BASE_URL + '/api/posts', {
         params: {
           user_id: userId
         }
@@ -48,7 +49,7 @@ export const postService = {
 
   getPostByPostId: async (postId: string) => {
     try {
-      const res = await axios.get(BASE_URL + '/api/posts', {
+      const res = await axiosInstance.get(BASE_URL + '/api/posts', {
         params: {
           post_id: postId
         }
@@ -66,7 +67,7 @@ export const postService = {
 
   createPost: async (data: TPostCreateData) => {
     try {
-      const res = await axios.post(BASE_URL + '/api/posts', data)
+      const res = await axiosInstance.post(BASE_URL + '/api/posts', data)
 
       return res.data
     } catch (err) {
@@ -80,7 +81,7 @@ export const postService = {
 
   editPost: async (postId: string, data: TPostEditData) => {
     try {
-      const res = await axios.patch(BASE_URL + '/api/posts', data, {
+      const res = await axiosInstance.patch(BASE_URL + '/api/posts', data, {
         params: {
           post_id: postId
         }
@@ -98,7 +99,7 @@ export const postService = {
 
   deletePost: async (postId: string) => {
     try {
-      const res = await axios.delete(BASE_URL + '/api/posts', {
+      const res = await axiosInstance.delete(BASE_URL + '/api/posts', {
         params: {
           post_id: postId
         }
