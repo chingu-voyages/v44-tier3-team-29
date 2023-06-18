@@ -18,19 +18,21 @@ export default function PostCard({ data }: {data: TPostData}) {
 
   const tagsHtml = formattedTags.map((tag, i) => {
           const borderColors = generateTagBorderColors(formattedTags);
-          const style = "mr-2 border-2 py-0.5 px-2 px-2 rounded" + " " + borderColors[i];
+          const style = "mr-2 my-1 border-2 py-0.5 px-2 px-2 rounded" + " " + borderColors[i];
           return (<li key={tag} className={style}><Link href={tag}>#{tag}</Link></li>)
   })
 
   return (
-    <div className="border-2 border-artemis-black rounded-md p-5 ">
-      <div className="border border-artemis-black rounded">
-        <Image src={image} alt="" className="object-cover " width={300} height={200} />
-      </div>
-      <h3 className="text-3xl mt-2">{title}</h3>
-      <span className="color-artemis-gray opacity-50">{location}</span>
+    <div className="border-2 border-artemis-black rounded-md p-5 m-3">
+      <Link href="post_address">
+        <div className="border-2 border-artemis-black rounded">
+          <Image src={image} alt="" className="object-cover" key={title} width={300} height={200} />
+        </div>
+      </Link>
+      <Link href="post_address"><h3 className="text-3xl mt-2">{title}</h3></Link>
+      <Link href={location}><span className="color-artemis-gray opacity-50">{location}</span></Link>
       <p className="py-3 text-lg">{shDesc}</p>
-      <ul className="flex">{tagsHtml}</ul>
+      <ul className="flex flex-wrap">{tagsHtml}</ul>
     </div>
   )
 }
