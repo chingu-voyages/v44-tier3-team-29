@@ -2,7 +2,7 @@ export type TPostData = {
   title: string
   location: string
   shDesc: string
-  tags: string
+  tags: string[]
   image: string
   lgDesc: string
   // createDate: string

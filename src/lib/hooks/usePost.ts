@@ -18,7 +18,10 @@ export const usePost = () => {
 
     if (!res.success) {
       addNewToast({ type: 'warning', message: res.message })
+      return
     }
+
+    return res.message
   }
 
   const getMyPosts = async () => {
@@ -31,7 +34,10 @@ export const usePost = () => {
 
     if (!res.success) {
       addNewToast({ type: 'warning', message: res.message })
+      return
     }
+
+    return res.message
   }
 
   const getPostsByUserId = async (userId: string) => {
@@ -39,7 +45,10 @@ export const usePost = () => {
 
     if (!res.success) {
       addNewToast({ type: 'warning', message: res.message })
+      return
     }
+
+    return res.message
   }
 
   const getPostByPostId = async (postId: string) => {
@@ -47,7 +56,10 @@ export const usePost = () => {
 
     if (!res.success) {
       addNewToast({ type: 'warning', message: res.message })
+      return
     }
+
+    return res.message
   }
 
   const createPost = async (data: TPostCreateData) => {

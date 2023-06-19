@@ -22,7 +22,11 @@ export const postService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        return { success: false, message: err.response?.data.message }
+        if (err.response?.status === 401) {
+          return { success: false, message: 'Please sign in your account...' }
+        } else {
+          return { success: false, message: err.response?.data.message }
+        }
       } else {
         return { success: false, message: 'Sozz something went wrong...' }
       }
