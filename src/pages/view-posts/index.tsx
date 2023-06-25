@@ -71,7 +71,7 @@ export default function ViewPosts() {
   }, [])
 
   async function fetchPosts() {
-    const data = await getAllPosts()
+    const data = await getAllPosts().catch(err => console.log(err))
 
     if (!data) return
 

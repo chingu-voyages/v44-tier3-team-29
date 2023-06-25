@@ -27,7 +27,7 @@ export const authService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        return { success: false, message: err.response?.data.message }
+        return { success: false, message: err.message }
       } else {
         return { success: false, message: 'Sozz something went wrong...' }
       }
@@ -56,7 +56,7 @@ export const authService = {
       return res.data
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        return { success: false, message: err.response?.data.message }
+        return { success: false, message: err.message }
       } else {
         return { success: false, message: 'Sozz something went wrong...' }
       }
