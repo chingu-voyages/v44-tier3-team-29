@@ -18,7 +18,7 @@ export default function SignUp() {
       confirm_password: confirmPassword
     }
 
-    await register(registerData)
+    await register(registerData).catch(err => console.log(err))
   }
 
   return (

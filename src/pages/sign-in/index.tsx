@@ -14,7 +14,7 @@ export default function SignIn() {
       password
     }
 
-    await login(loginData)
+    await login(loginData).catch(err => console.log(err))
   }
   return (
     <Layout>

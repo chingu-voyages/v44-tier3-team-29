@@ -3,8 +3,6 @@ import axios from 'axios'
 const axiosInstance = axios.create()
 
 axiosInstance.interceptors.request.use(config => {
-  console.log('Requesting to>>>', config.url)
-
   const user = JSON.parse(localStorage.getItem('user') as string)
 
   if (user && user.token) {
@@ -15,8 +13,6 @@ axiosInstance.interceptors.request.use(config => {
 })
 
 axiosInstance.interceptors.response.use(config => {
-  console.log('Response received.')
-
   const user = JSON.parse(localStorage.getItem('user') as string)
 
   if ([401, 403].includes(config.status) && user) {
