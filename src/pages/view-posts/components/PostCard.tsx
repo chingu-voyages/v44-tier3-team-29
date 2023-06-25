@@ -47,17 +47,19 @@ export default function PostCard({ data }: { data: TPostData }) {
     )
   })
 
+  /* eslint-disable @next/next/no-img-element */
   return (
     <div className='border-2 border-artemis-black rounded-md p-5 m-3'>
       <Link href='post_address'>
         <div className='border-2 border-artemis-black rounded'>
-          <Image
+          <img
             alt=''
             src={image}
             className='object-cover'
             key={title}
             width={300}
             height={200}
+            loading='lazy'
           />
         </div>
       </Link>
